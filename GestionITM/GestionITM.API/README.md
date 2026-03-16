@@ -138,3 +138,43 @@ Swagger se configura a través de los paquetes:
 Al ejecutar la API, la interfaz de Swagger suele estar disponible en una ruta similar a:
 
 - `https://localhost:<puerto>/swagger`
+
+---
+## 📘 IMPLEMENTACIÓN: MÓDULO PROFESORES (Nivel 5)
+
+Se ha extendido la arquitectura de la solución para integrar el módulo de gestión de docentes, aplicando patrones avanzados de **Arquitectura N-Capas** y garantizando la robustez exigida para el Nivel 5.
+
+### 🚀 Diferenciales de Arquitectura
+- **Desacoplamiento:** Uso de Inyección de Dependencias para comunicar capas.
+- **AutoMapper:** Transformación automática de Entidades a DTOs.
+- **Seguridad:** Uso de DTOs para ocultar datos sensibles (`FechaContratacion`).
+- **Resiliencia:** Middleware Global de Excepciones.
+
+---
+
+### 📸 Evidencias de Funcionamiento
+
+#### 1. Persistencia en SQL Server
+Se confirma la creación de la tabla y la persistencia física de los registros.
+![Base de Datos](../Evidencias/Captura_1.PNG)
+
+#### 2. Registro de Docente (POST)
+Validación del endpoint de creación y respuesta exitosa.
+![Envío POST](../Evidencias/Captura_2.png)
+![Respuesta POST](../Evidencias/Captura_3.png)
+
+#### 3. Consulta y Seguridad DTO (GET)
+Se comprueba que el sistema filtra la información sensible en la salida.
+![Consulta GET](../Evidencias/Captura_4.png)
+
+#### 4. Regla de Negocio: Log Senior
+Detección de especialidad "Arquitectura" con log automático en consola.
+![Petición Log](../Evidencias/Captura_5.png)
+![Resultado Consola](../Evidencias/Captura_6.png)
+
+#### 5. Robustez: Middleware Global
+Prueba de captura de errores mediante el comando `error`.
+![Middleware](../Evidencias/Captura_7.png)
+![Middleware](../Evidencias/Captura_8.png)
+
+---
