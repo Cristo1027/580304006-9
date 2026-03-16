@@ -1,4 +1,14 @@
 <Solution>
+  <Folder Name="/Evidencias/">
+    <File Path="../../../../../Pictures/Screenshots/Captura_1.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_2.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_3.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_4.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_5.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_6.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_7.png" />
+    <File Path="../../../../../Pictures/Screenshots/Captura_8.png" />
+  </Folder>
   <Project Path="GestionITM.API/GestionITM.API.csproj" Id="50d4369f-7876-49a6-8724-6fcfc54226dd" />
   <Project Path="GestionITM.Domain/GestionITM.Domain.csproj" Id="639633d0-bff6-442f-aaa2-a335889a5cb3" />
   <Project Path="GestionITM.Infrastructure/GestionITM.Infrastructure.csproj" Id="1ea15895-b2b4-4ded-ad48-3adef92ed390" />
