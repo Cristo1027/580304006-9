@@ -1,11 +1,11 @@
 using GestionITM.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionITM.Domain.Interfaces
 {
-    public interface ICursoRepository
+    public interface ICursoRepository : IRepository<Curso>
     {
-        Task<IEnumerable<Curso>> ObtenerTodoAsync();
         Task<Curso?> ObtenerPorIdAsync(int id);
-        Task AgregarAsync(Curso curso);
+        IQueryable<Curso> ObtenerQueryable();  // 🎯 Paginación EFICIENTE
     }
 }

@@ -17,5 +17,8 @@ namespace GestionITM.Domain.Entities
         // Créditos académicos del curso
         [Range(0, 30)]
         public int Creditos { get; set; }
+
+        public int CuposDisponibles { get; set; }
+
     }
 }

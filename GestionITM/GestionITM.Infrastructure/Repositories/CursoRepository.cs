@@ -1,33 +1,25 @@
 using GestionITM.Domain.Entities;
 using GestionITM.Domain.Interfaces;
-using GestionITM.Infrastructure;
+using GestionITM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionITM.Infrastructure.Repositories
 {
-    public class CursoRepository : ICursoRepository
+    public class CursoRepository : Repository<Curso>, ICursoRepository
     {
-        private readonly ApplicationDbContext _context;
-
-        public CursoRepository(ApplicationDbContext context)
+        public CursoRepository(ApplicationDbContext context) : base(context)
         {
-            _context = context;
-        }
-
-        public async Task<IEnumerable<Curso>> ObtenerTodoAsync()
-        {
-            return await _context.Cursos.ToListAsync();
         }
 
         public async Task<Curso?> ObtenerPorIdAsync(int id)
         {
-            return await _context.Cursos.FindAsync(id);
+            return await _context.Cursos
+                .FirstOrDefaultAsync(c => c.Id == id);  // ← Id (no id_curso)
         }
 
-        public async Task AgregarAsync(Curso curso)
+        public IQueryable<Curso> ObtenerQueryable()
         {
-            await _context.Cursos.AddAsync(curso);
-            await _context.SaveChangesAsync();
+            return _context.Cursos.AsQueryable();  // 🎯 IQueryable para SQL optimizado
         }
     }
 }
