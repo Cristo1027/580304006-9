@@ -1,5 +1,6 @@
+using System.Linq;
+using System.Threading.Tasks;
 using GestionITM.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace GestionITM.Domain.Interfaces
 {

@@ -2,6 +2,7 @@
 using GestionITM.Domain.Dtos;
 using GestionITM.Domain.Entities;
 using GestionITM.Domain.Interfaces;
+using GestionITM.Domain.Models; 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -38,13 +39,11 @@ namespace GestionITM.Infrastructure.Services
             // FASE B: REGLA DE NEGOCIO "El Chef" — verificar cupos
             if (curso.CuposDisponibles <= 0)
             {
-                // LogWarning: regla de negocio no cumplida (igual que el profesor en ProfesorService)
                 _logger.LogWarning(
                     "Matricula rechazada por falta de cupos. " +
                     "EstudianteId: {EstId}, CursoId: {CurId}",
                     estudianteId, dto.CursoId);
 
-                // ArgumentException → ExceptionMiddleware → HTTP 400
                 throw new ArgumentException(
                     $"El curso '{curso.Nombre}' no tiene cupos disponibles.");
             }
@@ -68,9 +67,7 @@ namespace GestionITM.Infrastructure.Services
                     Estado = "Activa"
                 };
 
-                // Descontar el cupo disponible
                 curso.CuposDisponibles--;
-
                 await _matriculaRepo.AgregarAsync(matricula);
 
                 _logger.LogInformation(
@@ -82,7 +79,6 @@ namespace GestionITM.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                // Igual que ProfesorService: guardamos el StackTrace completo en el log
                 _logger.LogError(ex,
                     "Error crítico al guardar la matrícula. EstudianteId: {EstId}",
                     estudianteId);
@@ -93,28 +89,28 @@ namespace GestionITM.Infrastructure.Services
         public async Task<PagedResult<Curso>> ObtenerCursosPaginadosAsync(
             int pageNumber, int pageSize)
         {
-            // FASE A: IQueryable — igual que ProfesorService.ObtenerPaginadosAsync
+            // FASE A: IQueryable
             var consulta = _cursoRepo.ObtenerQueryable()
                 .Where(c => c.CuposDisponibles > 0)
                 .OrderBy(c => c.Nombre);
 
-            // FASE B: COUNT(*) — primer query a SQL
-            var totalItems = await consulta.CountAsync();
+            // FASE B: COUNT(*)
+            var totalRegistros = await consulta.CountAsync();
 
-            // FASE C: OFFSET/FETCH — segundo query a SQL (solo la página)
+            // FASE C: OFFSET/FETCH
             var items = await consulta
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
 
-            // FASE D: Empaquetar en PagedResult<T> de Domain.Dtos (el que usa IMatriculaService)
+            // FASE D: Empaquetar — usando Domain.Models.PagedResult igual que ProfesorService
             return new PagedResult<Curso>
             {
                 Items = items,
-                TotalItems = totalItems,
-                PageNumber = pageNumber,
-                PageSize = pageSize
-                // TotalPages se calcula automáticamente con la propiedad calculada del DTO
+                TotalRegistros = totalRegistros,
+                PaginaActual = pageNumber,
+                RegistrosPorPagina = pageSize,
+                TotalPaginas = (int)Math.Ceiling(totalRegistros / (double)pageSize)
             };
         }
     }
