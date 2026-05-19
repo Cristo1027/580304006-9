@@ -18,10 +18,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore GestionITM/GestionITM.sln
+      run: dotnet restore GestionITM/GestionITM.Tests/GestionITM.Tests.csproj
 
     - name: Build
-      run: dotnet build GestionITM/GestionITM.sln --no-restore
+      run: dotnet build GestionITM/GestionITM.Tests/GestionITM.Tests.csproj --no-restore
 
     - name: Test
-      run: dotnet test GestionITM/GestionITM.sln --no-build --verbosity normal
+      run: dotnet test GestionITM/GestionITM.Tests/GestionITM.Tests.csproj --no-build --verbosity normal
