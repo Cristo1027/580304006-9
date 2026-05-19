@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GestionITM.AppMovil.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:GestionITM.AppMovil.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- Página de Login como página inicial -->
+    <ShellContent
+        x:Name="LoginPage"
+        Route="LoginPage"
+        ContentTemplate="{DataTemplate views:LoginPage}"/>
+
+    <!-- Catálogo de cursos -->
+    <ShellContent
+        x:Name="CursosPage"
+        Route="CursosPage"
+        ContentTemplate="{DataTemplate views:CursosPage}"/>
+
+</Shell>

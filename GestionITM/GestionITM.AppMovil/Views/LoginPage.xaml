@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GestionITM.AppMovil.ViewModels"
+             x:Class="GestionITM.AppMovil.Views.LoginPage"
+             Title="GestionITM"
+             BackgroundColor="#f5f5f5">
+
+    <VerticalStackLayout Padding="32" Spacing="16" VerticalOptions="Center">
+
+        <!-- Logo / Título -->
+        <Label Text="GestionITM"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#1a237e"/>
+
+        <Label Text="Instituto Tecnológico Metropolitano"
+               FontSize="14"
+               HorizontalOptions="Center"
+               TextColor="#546e7a"/>
+
+        <BoxView HeightRequest="20" Color="Transparent"/>
+
+        <!-- Email -->
+        <Entry Placeholder="Correo electrónico"
+               Text="{Binding Email}"
+               Keyboard="Email"
+               BackgroundColor="White"/>
+
+        <!-- Password -->
+        <Entry Placeholder="Contraseña"
+               Text="{Binding Password}"
+               IsPassword="True"
+               BackgroundColor="White"/>
+
+        <!-- Botón Login -->
+        <Button Text="Iniciar Sesión"
+                Command="{Binding LoginCommand}"
+                BackgroundColor="#1565c0"
+                TextColor="White"
+                CornerRadius="8"
+                HeightRequest="50"/>
+
+        <!-- Indicador de carga -->
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="#1565c0"
+                           HorizontalOptions="Center"/>
+
+        <!-- Mensaje de error -->
+        <Label Text="{Binding ErrorMessage}"
+               TextColor="Red"
+               IsVisible="{Binding HasError}"
+               HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>

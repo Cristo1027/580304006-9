@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:GestionITM.AppMovil.ViewModels"
+             xmlns:models="clr-namespace:GestionITM.AppMovil.Models"
+             x:Class="GestionITM.AppMovil.Views.CursosPage"
+             Title="Cursos Disponibles"
+             BackgroundColor="#f5f5f5">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- CollectionView con Scroll Infinito -->
+        <CollectionView
+            Grid.Row="0"
+            ItemsSource="{Binding Cursos}"
+            RemainingItemsThreshold="3"
+            RemainingItemsThresholdReachedCommand="{Binding CargarMasCommand}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CursoModel">
+                    <Frame Margin="12,6" Padding="16"
+                           CornerRadius="10"
+                           BorderColor="#90caf9"
+                           BackgroundColor="White">
+                        <VerticalStackLayout Spacing="6">
+
+                            <Label Text="{Binding Nombre}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#1a237e"/>
+
+                            <Label Text="{Binding Codigo}"
+                                   FontSize="12"
+                                   TextColor="#546e7a"/>
+
+                            <Label Text="{Binding Creditos, StringFormat='Créditos: {0}'}"
+                                   FontSize="12"
+                                   TextColor="#546e7a"/>
+
+                            <Label Text="{Binding CuposDisponibles, StringFormat='Cupos disponibles: {0}'}"
+                                   FontSize="13"
+                                   FontAttributes="Bold"
+                                   TextColor="#1565c0"/>
+
+                            <Button Text="Matricularme"
+                                    BackgroundColor="#1565c0"
+                                    TextColor="White"
+                                    CornerRadius="8"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CursosViewModel}}, Path=MatricularCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!-- Indicador de carga al final de la lista -->
+            <CollectionView.Footer>
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    Color="#1565c0"
+                    HorizontalOptions="Center"
+                    Margin="8"/>
+            </CollectionView.Footer>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

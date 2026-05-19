@@ -3,6 +3,7 @@
     <File Path="docker-compose.yml" />
   </Folder>
   <Project Path="GestionITM.API/GestionITM.API.csproj" Id="50d4369f-7876-49a6-8724-6fcfc54226dd" />
+  <Project Path="GestionITM.AppMovil/GestionITM.AppMovil.csproj" Id="d6ebcfd6-60b9-46f7-a2fa-45e4e5b6ef4f" />
   <Project Path="GestionITM.Domain/GestionITM.Domain.csproj" Id="639633d0-bff6-442f-aaa2-a335889a5cb3" />
   <Project Path="GestionITM.Infrastructure/GestionITM.Infrastructure.csproj" Id="1ea15895-b2b4-4ded-ad48-3adef92ed390" />
   <Project Path="GestionITM.Tests/GestionITM.Tests.csproj" Id="61f4dc73-cbba-4401-8fa8-5592f16b00f5" />
