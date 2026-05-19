@@ -330,3 +330,62 @@ System.ArgumentException: El curso 'Redes de Computadores' no tiene cupos dispon
 [04:44:31 INF] Iniciando registro de profesor. Email proporcionado: carlos.ruiz@correo.itm.edu.co <s:GestionITM.Infrastructure.Services.ProfesorService>
 [04:44:31 INF] Profesor Carlos Ruiz registrado exitosamente. <s:GestionITM.Infrastructure.Services.ProfesorService>
 [04:44:31 INF] HTTP POST /api/profesor responded 200 in 40.2157 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[11:35:33 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[11:35:33 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[11:35:33 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[11:35:33 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[11:35:34 INF] HTTP GET /swagger/index.html responded 200 in 87.9400 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[11:35:34 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 24.5133 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:04:54 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[12:04:54 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[12:04:54 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[12:04:54 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[12:04:55 INF] HTTP GET /swagger/index.html responded 200 in 81.4408 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:04:55 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 10.6253 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:10:41 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[12:10:41 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[12:10:41 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[12:10:41 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[12:10:42 INF] HTTP GET /swagger/index.html responded 200 in 94.2011 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:10:42 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 12.5585 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:16:16 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[12:16:16 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[12:16:16 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[12:16:16 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[12:16:18 INF] HTTP GET /swagger/index.html responded 200 in 88.6841 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[12:16:18 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 20.1699 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[16:54:40 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[16:54:40 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[16:54:40 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[16:54:40 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[16:54:41 INF] HTTP GET /swagger/index.html responded 200 in 88.2587 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[16:54:41 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 31.5358 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:02:26 INF] Now listening on: http://localhost:5016 <s:Microsoft.Hosting.Lifetime>
+[17:02:26 INF] Application started. Press Ctrl+C to shut down. <s:Microsoft.Hosting.Lifetime>
+[17:02:26 INF] Hosting environment: Development <s:Microsoft.Hosting.Lifetime>
+[17:02:26 INF] Content root path: C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API <s:Microsoft.Hosting.Lifetime>
+[17:02:27 INF] HTTP GET /swagger/index.html responded 200 in 99.5353 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:02:27 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 22.4226 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:05:46 INF] HTTP POST /api/Auth/login responded 200 in 140.1270 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:05:47 INF] HTTP GET /api/curso/paginado responded 200 in 581.0847 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:07:15 INF] Matricula creada exitosamente. EstudianteId: 1, CursoId: 5, Periodo: 2026-1 <s:GestionITM.Infrastructure.Services.MatriculaService>
+[17:07:15 INF] HTTP POST /api/Matricula responded 201 in 317.2588 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>
+[17:08:20 ERR] Ya estás matriculado en el curso 'Arquitectura de Software'. <s:GestionITM.API.Middleware.ExceptionMiddleware>
+System.ArgumentException: Ya estás matriculado en el curso 'Arquitectura de Software'.
+   at GestionITM.Infrastructure.Services.MatriculaService.CrearMatriculaAsync(MatriculaCreateDto dto, Int32 estudianteId) in C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.Infrastructure\Services\MatriculaService.cs:line 56
+   at GestionITM.API.Controllers.MatriculaController.Post(MatriculaCreateDto dto) in C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API\Controllers\MatriculaController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GestionITM.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\User\Documents\Universidad\Programacion\580304006-9\GestionITM\GestionITM.API\Middleware\ExceptionMiddleware.cs:line 32
+[17:08:20 INF] HTTP POST /api/Matricula responded 400 in 184.9431 ms <s:Serilog.AspNetCore.RequestLoggingMiddleware>

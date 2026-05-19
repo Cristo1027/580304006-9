@@ -81,7 +81,24 @@ namespace GestionITM.AppMovil.ViewModels
         [RelayCommand]
         public async Task MatricularAsync(CursoModel curso)
         {
-            await _matriculaService.MatricularseAsync(curso.Id);
+            if (IsBusy) return;
+            IsBusy = true;
+
+            try
+            {
+                await _matriculaService.MatricularseAsync(curso.Id);
+
+                // Refrescar la lista para actualizar los cupos visibles
+                await CargarCursosAsync();
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

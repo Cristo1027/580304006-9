@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "GestionITM.API\\GestionITM.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "GestionITM.AppMovil\\GestionITM.AppMovil.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
