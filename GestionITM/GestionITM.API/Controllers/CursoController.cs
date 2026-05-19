@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using GestionITM.Domain.Interfaces;
-using GestionITM.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GestionITM.API.Controllers
 {
@@ -8,39 +8,35 @@ namespace GestionITM.API.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
-        private readonly ICursoRepository _repository;
+        // Inyectamos el SERVICIO de matrícula que ya tiene
+        // ObtenerCursosPaginadosAsync con IQueryable
+        private readonly IMatriculaService _service;
 
-        public CursoController(ICursoRepository repository)
+        public CursoController(IMatriculaService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
-        // GET: api/curso
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Curso>>> GetCursos()
+        /// <summary>
+        /// Lista los cursos disponibles con paginación eficiente
+        /// </summary>
+        /// <remarks>
+        /// Ejemplo de petición:
+        /// 
+        /// GET /api/curso/paginado?pageNumber=1&pageSize=10
+        /// </remarks>
+        /// <response code="200">Lista paginada de cursos</response>
+        // GET: api/curso/paginado?pageNumber=1&pageSize=10
+        [HttpGet("paginado")]
+        [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetPaginado(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10)
         {
-            var cursos = await _repository.ObtenerTodoAsync();
-            return Ok(cursos);
-        }
-
-        // GET: api/curso/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Curso>> GetCurso(int id)
-        {
-            var curso = await _repository.ObtenerPorIdAsync(id);
-            if (curso == null)
-            {
-                return NotFound(new { message = $"Curso con ID {id} no encontrado." });
-            }
-            return Ok(curso);
-        }
-
-        // POST: api/curso
-        [HttpPost]
-        public async Task<ActionResult> PostCurso(Curso curso)
-        {
-            await _repository.AgregarAsync(curso);
-            return CreatedAtAction(nameof(GetCurso), new { id = curso.Id }, curso);
+            var resultado = await _service
+                .ObtenerCursosPaginadosAsync(pageNumber, pageSize);
+            return Ok(resultado);
         }
     }
 }

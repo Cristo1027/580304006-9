@@ -96,8 +96,11 @@ builder.Services.AddScoped<ICursoRepository, CursoRepository>();
 builder.Services.AddScoped<IProfesorRepository, ProfesorRepository>();
 builder.Services.AddScoped<IProfesorService, ProfesorService>();
 
-// AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+ builder.Services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+ builder.Services.AddScoped<IMatriculaService, MatriculaService>();
+
+    // AutoMapper
+    builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 

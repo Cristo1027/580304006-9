@@ -15,6 +15,10 @@ namespace GestionITM.API.Mappings
             // Mapeos para Profesor
             CreateMap<Profesor, ProfesorDto>();
             CreateMap<ProfesorCreateDto, Profesor>();
+
+            //mapeos para Matriculas
+            CreateMap<Matricula, MatriculaDto>();
+            CreateMap<MatriculaCreateDto, Matricula>();
         }
     }
 }

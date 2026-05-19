@@ -1,6 +1,5 @@
 using GestionITM.Domain.Entities;
 using GestionITM.Domain.Interfaces;
-using GestionITM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionITM.Infrastructure.Repositories
