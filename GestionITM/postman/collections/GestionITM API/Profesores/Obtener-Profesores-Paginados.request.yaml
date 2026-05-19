@@ -1,0 +1,19 @@
+$kind: http-request
+name: Obtener Profesores Paginados
+method: GET
+url: '{{baseUrl}}/api/profesor/paginado'
+order: 2000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'
+queryParams:
+  - key: Pagina
+    value: '1'
+  - key: RegistrosPorPagina
+    value: '10'
+  - key: BusquedaNombre
+    value: ''
+  - key: Especialidad
+    value: ''

@@ -1,0 +1,10 @@
+$kind: http-request
+name: Obtener Todos los Estudiantes
+method: GET
+url: '{{baseUrl}}/api/estudiante'
+order: 1000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'

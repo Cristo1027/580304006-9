@@ -1,0 +1,21 @@
+$kind: http-request
+name: Registrar Estudiante
+method: POST
+url: '{{baseUrl}}/api/estudiante'
+order: 3000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "nombre": "Carlos Pérez",
+      "correo": "carlos.perez@correo.itm.edu.co"
+    }
+examples: './.resources/Registrar-Estudiante.resources/examples'

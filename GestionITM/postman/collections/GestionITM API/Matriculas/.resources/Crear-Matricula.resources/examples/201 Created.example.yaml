@@ -1,0 +1,17 @@
+$kind: http-example
+name: 201 Created
+request:
+  url: '{{baseUrl}}/api/matricula'
+  method: POST
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Matrícula creada con éxito."
+      }

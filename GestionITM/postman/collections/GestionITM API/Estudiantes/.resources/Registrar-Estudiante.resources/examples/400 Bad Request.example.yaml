@@ -1,0 +1,14 @@
+$kind: http-example
+name: 400 Bad Request
+request:
+  url: '{{baseUrl}}/api/estudiante'
+  method: POST
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: text
+    content: 'No se pudo registrar. Verifique que el correo sea institucional (@correo.itm.edu.co).'

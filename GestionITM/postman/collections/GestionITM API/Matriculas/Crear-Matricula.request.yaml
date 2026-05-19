@@ -1,0 +1,21 @@
+$kind: http-request
+name: Crear Matrícula
+method: POST
+url: '{{baseUrl}}/api/matricula'
+order: 1000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cursoId": 1,
+      "periodo": "2026-1"
+    }
+examples: './.resources/Crear-Matricula.resources/examples'

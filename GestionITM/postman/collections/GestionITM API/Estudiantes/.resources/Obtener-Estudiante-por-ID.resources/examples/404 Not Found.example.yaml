@@ -1,0 +1,17 @@
+$kind: http-example
+name: 404 Not Found
+request:
+  url: '{{baseUrl}}/api/estudiante/1'
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Estudiante con ID 1 no encontrado."
+      }

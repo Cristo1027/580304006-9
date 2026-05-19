@@ -1,0 +1,17 @@
+$kind: http-example
+name: 200 OK
+request:
+  url: '{{baseUrl}}/api/estudiante'
+  method: POST
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Estudiante registrado con éxito en el sistema del ITM."
+      }

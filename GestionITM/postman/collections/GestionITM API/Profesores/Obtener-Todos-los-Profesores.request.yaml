@@ -1,0 +1,10 @@
+$kind: http-request
+name: Obtener Todos los Profesores
+method: GET
+url: '{{baseUrl}}/api/profesor'
+order: 1000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'

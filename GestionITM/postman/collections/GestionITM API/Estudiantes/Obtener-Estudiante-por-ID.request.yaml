@@ -1,0 +1,11 @@
+$kind: http-request
+name: Obtener Estudiante por ID
+method: GET
+url: '{{baseUrl}}/api/estudiante/1'
+order: 2000
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{token}}'
+examples: './.resources/Obtener-Estudiante-por-ID.resources/examples'

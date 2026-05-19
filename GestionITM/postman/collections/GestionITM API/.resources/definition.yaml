@@ -1,0 +1,7 @@
+$kind: collection
+name: GestionITM API
+variables:
+  - key: baseUrl
+    value: 'http://localhost:5016'
+  - key: token
+    value: ''

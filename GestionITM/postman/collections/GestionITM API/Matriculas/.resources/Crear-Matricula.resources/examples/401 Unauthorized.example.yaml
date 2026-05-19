@@ -1,0 +1,14 @@
+$kind: http-example
+name: 401 Unauthorized
+request:
+  url: '{{baseUrl}}/api/matricula'
+  method: POST
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: text
+    content: 'No autorizado'

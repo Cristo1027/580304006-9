@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: c2fc52f6-20e8-41b2-82b7-ebb072fab3cf
+
+localResources:
+  specs:
+    - ..\GestionITM.API\obj\Debug\net8.0\EndpointInfo\GestionITM.API.json

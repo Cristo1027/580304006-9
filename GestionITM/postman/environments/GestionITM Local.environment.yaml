@@ -1,0 +1,10 @@
+name: GestionITM Local
+values:
+  - key: baseUrl
+    value: 'http://localhost:5016'
+    enabled: true
+    type: default
+  - key: token
+    value: ''
+    enabled: true
+    type: secret

@@ -1,0 +1,13 @@
+$kind: http-request
+name: Listar Cursos Paginados
+method: GET
+url: '{{baseUrl}}/api/curso/paginado'
+order: 1000
+auth:
+  type: noauth
+queryParams:
+  - key: pageNumber
+    value: '1'
+  - key: pageSize
+    value: '10'
+examples: './.resources/Listar-Cursos-Paginados.resources/examples'

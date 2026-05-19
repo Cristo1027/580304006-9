@@ -1,0 +1,20 @@
+$kind: http-example
+name: 200 OK
+request:
+  url: '{{baseUrl}}/api/curso/paginado'
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "pageNumber": 1,
+        "pageSize": 10,
+        "totalRecords": 0,
+        "data": []
+      }
