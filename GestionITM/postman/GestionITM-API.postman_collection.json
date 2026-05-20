@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "GestionITM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [{
+        "name": "POST Login",
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:5016/api/Auth/login",
+          "body": {
+            "mode": "raw",
+            "raw": "{\"email\":\"estudiante@correo.itm.edu.co\",\"password\":\"123456\",\"rol\":\"Estudiante\"}",
+            "options": {"raw": {"language": "json"}}
+          }
+        }
+      }]
+    },
+    {
+      "name": "Cursos",
+      "item": [{
+        "name": "GET Cursos Paginados",
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:5016/api/Curso/paginado?pageNumber=1&pageSize=10",
+          "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "{{token}}"}]}
+        }
+      }]
+    },
+    {
+      "name": "Matriculas",
+      "item": [{
+        "name": "POST Crear Matricula",
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:5016/api/Matricula",
+          "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "{{token}}"}]},
+          "body": {
+            "mode": "raw",
+            "raw": "{\"cursoId\":1,\"periodo\":\"2026-1\"}",
+            "options": {"raw": {"language": "json"}}
+          }
+        }
+      }]
+    }
+  ]
+}
