@@ -1,20 +1,21 @@
 {
   "info": {
     "name": "GestionITM API",
+    "description": "Colección completa de endpoints para el sistema de gestión académica ITM",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
       "name": "Auth",
       "item": [{
-        "name": "POST Login",
+        "name": "POST Login Estudiante",
         "request": {
           "method": "POST",
           "url": "http://localhost:5016/api/Auth/login",
+          "header": [{"key": "Content-Type", "value": "application/json"}],
           "body": {
             "mode": "raw",
-            "raw": "{\"email\":\"estudiante@correo.itm.edu.co\",\"password\":\"123456\",\"rol\":\"Estudiante\"}",
-            "options": {"raw": {"language": "json"}}
+            "raw": "{\"email\":\"estudiante@correo.itm.edu.co\",\"password\":\"123456\",\"rol\":\"Estudiante\"}"
           }
         }
       }]
@@ -25,26 +26,93 @@
         "name": "GET Cursos Paginados",
         "request": {
           "method": "GET",
-          "url": "http://localhost:5016/api/Curso/paginado?pageNumber=1&pageSize=10",
-          "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "{{token}}"}]}
+          "url": "http://localhost:5016/api/Curso/paginado?pageNumber=1&pageSize=10"
         }
       }]
     },
     {
       "name": "Matriculas",
-      "item": [{
-        "name": "POST Crear Matricula",
-        "request": {
-          "method": "POST",
-          "url": "http://localhost:5016/api/Matricula",
-          "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "{{token}}"}]},
-          "body": {
-            "mode": "raw",
-            "raw": "{\"cursoId\":1,\"periodo\":\"2026-1\"}",
-            "options": {"raw": {"language": "json"}}
+      "item": [
+        {
+          "name": "POST Crear Matricula (requiere token Estudiante)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5016/api/Matricula",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {{token}}"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"cursoId\":1,\"periodo\":\"2026-1\"}"
+            }
+          }
+        },
+        {
+          "name": "POST Matricula Sin Cupos (error 400)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5016/api/Matricula",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {{token}}"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"cursoId\":4,\"periodo\":\"2026-1\"}"
+            }
           }
         }
-      }]
+      ]
+    },
+    {
+      "name": "Estudiantes",
+      "item": [
+        {
+          "name": "GET Todos los Estudiantes",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5016/api/Estudiante",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        },
+        {
+          "name": "POST Registrar Estudiante",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5016/api/Estudiante",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {{token}}"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\":\"Juan Perez\",\"correo\":\"juan@correo.itm.edu.co\",\"telefono\":\"3001234567\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profesores",
+      "item": [
+        {
+          "name": "GET Todos los Profesores",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5016/api/Profesor",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        },
+        {
+          "name": "GET Profesores Paginados",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5016/api/Profesor/paginado?Pagina=1&RegistrosPorPagina=10",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}]
+          }
+        }
+      ]
     }
   ]
 }
